@@ -27,7 +27,7 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "unist_price")
+    @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
     @Column(name = "image_url")
