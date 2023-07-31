@@ -1,6 +1,8 @@
 package com.ecommerce.springbotecommerce.config;
 
+import com.ecommerce.springbotecommerce.Entity.Country;
 import com.ecommerce.springbotecommerce.Entity.Product;
+import com.ecommerce.springbotecommerce.Entity.State;
 import com.ecommerce.springbotecommerce.ProductCategory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.EntityType;
@@ -42,6 +44,17 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 .forDomainType(ProductCategory.class)
                 .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods)))
                 .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods));
+
+        config.getExposureConfiguration()
+                .forDomainType(State.class)
+                .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods)))
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods));
+
+        config.getExposureConfiguration()
+                .forDomainType(Country.class)
+                .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods)))
+                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(unsupportedMethods));
+
 
         //call an intenral helpet method to expose ids;
         exposeIds(config);
